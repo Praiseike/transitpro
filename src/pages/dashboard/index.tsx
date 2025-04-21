@@ -4,7 +4,7 @@ import React, {
   useRef,
   useState,
 } from "react";
-import Scoreboard, { ScoreSheet } from "../../components/Scoreboard";
+import { ScoreSheet } from "../../components/Scoreboard";
 import Datatable from "../../components/Common/Datatable";
 import {
   getCoreRowModel,

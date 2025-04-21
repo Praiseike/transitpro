@@ -58,7 +58,7 @@ export default function Datatable({
     const closeAction = () => setActionOpen(false);
 
     return (
-      <tr key={row.id} className="h-[40px]">
+      <tr key={row.id} className="h-[40px] text-sm">
         <td
           className="pl-[20px] py-4 cursor-pointer"
           onClick={() => onSelect(row.original.id)}

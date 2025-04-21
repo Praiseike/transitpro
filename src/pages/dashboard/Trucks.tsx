@@ -16,7 +16,7 @@ import {
 } from "@tanstack/react-table";
 import { truckColumns } from "../../tables/trucksTableColumns";
 import { ScaleLoader } from "react-spinners";
-import UserActions from "../../components/TableActions/UserActions";
+import TruckActions from "../../components/TableActions/TruckActions";
 import Images from "../../assets/images";
 import { SearchInput } from "../../components/Input";
 import { TrucksIcon } from "../../assets/icons/Trucks";
@@ -30,7 +30,7 @@ const TruckInfo = React.lazy(() => import("./components/TruckInfo"));
 
 
 
-const TableSection = forwardRef(({ selection, setSelection }: any, ref) => {
+const TableSection = forwardRef(({ selection, setSelection, action }: any, ref) => {
   
   const fetcher = useFetcher();
 
@@ -48,7 +48,6 @@ const TableSection = forwardRef(({ selection, setSelection }: any, ref) => {
     getSelection: () => selection,
   }));
 
-  // Memoize table data and columns
   const memoizedColumns = useMemo(() => truckColumns, []);
 
   const table = useReactTable({
@@ -59,7 +58,7 @@ const TableSection = forwardRef(({ selection, setSelection }: any, ref) => {
   });
 
   const renderAction = (close: Function, row: any) => {
-    return <UserActions close={close} row={row} />;
+    return action(row.original);
   };
 
   return (
@@ -106,12 +105,13 @@ export default function Trucks() {
     setAddModalOpen(false);
   };
 
-  // const showInfo = (data: any) => {
-  //   setTruckInfo({
-  //     open: true,
-  //     data: data,
-  //   });
-  // };
+  const showInfo = (data: any) => {
+    console.log(data)
+    setTruckInfo({
+      open: true,
+      data: data,
+    });
+  };
 
   const closeInfo = () => {
     setTruckInfo({ open: false, data: null });
@@ -121,6 +121,8 @@ export default function Trucks() {
     total_drivers: 10,
     total_trucks: 58,
   };
+
+  const action = (row: any) => <TruckActions deleteTruck={() => null} viewDetails={showInfo} close={close} row={row} />
 
   return (
     <div className="">
@@ -160,6 +162,7 @@ export default function Trucks() {
           <TableSection
             selection={selection}
             setSelection={setSelection}
+            action={action}
             ref={tableRef}
           />
         </div>
@@ -183,6 +186,7 @@ export default function Trucks() {
           truck={truckInfo.data}
         />
       </Suspense>
+      
     </div>
   );
 }

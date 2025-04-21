@@ -9,9 +9,10 @@ export const Input = ({ value, readOnly, name, onChange, label, placeholder }: a
                 value={value}
                 readOnly={readOnly}
                 name={name}
+                disabled={readOnly}
                 onChange={onChange}
                 placeholder={placeholder}
-                className="darker-grotesque-500 placeholder:darker-grotesque-300 text-xl placeholder:text-[14px] text-[#131313] py-3 px-4 border rounded"
+                className={`darker-grotesque-500 placeholder:darker-grotesque-300 text-xl placeholder:text-[14px]  py-3 px-4 border rounded ${readOnly ? 'text-gray-500' : 'text-[#131313]'}`}
             />
         </div>
     );

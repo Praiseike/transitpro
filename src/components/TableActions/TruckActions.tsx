@@ -1,48 +1,39 @@
 import React from "react";
 import Images from "../../assets/images";
 
-export default function UserActions({ close, data = []}: any) {
-  
-  const viewDetails = () => {}
-  const acceptUser = () => {}
-  const rejectUser = () => {}
+export default function TruckActions({ close, row , viewDetails, deleteTruck }: any) {
 
   const buttons = [
     {
       color: "black",
       handler: viewDetails,
       icon: Images.ActionView,
-      name: "View User",
+      name: "View Truck",
     },
-    {
-      color: "black",
-      handler: acceptUser,
-      icon: Images.ActionAccept,
-      name: "Accept User",
-    },
+
     {
       color: "red",
-      handler: rejectUser,
+      handler: deleteTruck,
       icon: Images.ActionReject,
-      name: "Reject User",
+      name: "Delete Truck",
     },
   ];
 
   return (
-    <div className="p-5 z-[100]  bg-white border shadow-2xl rounded">
+    <div className="p-5 px-3 relative z-[1000]  bg-white border shadow-2xl rounded">
       <ul className="flex flex-col min-w-[10rem] gap-3">
         {buttons.map((action) => (
-          <li className="hover:bg-light rounded">
+          <li className="hover:bg-[#f3f3f3] rounded">
             <button
               style={{ color: action.color }}
               onClick={() => {
-                action.handler();
+                action.handler(row);
                 close();
               }}
               className="px-3 flex gap-2 items-center w-full py-2"
             >
               <img src={action.icon} alt="" />
-              <span>{action.name}</span>
+              <span className="text-sm">{action.name}</span>
             </button>
           </li>
         ))}

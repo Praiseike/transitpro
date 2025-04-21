@@ -14,7 +14,7 @@ import {
 } from "@tanstack/react-table";
 import { dashboardColumns } from "../../tables/dashboardTableColumns";
 import { ScaleLoader } from "react-spinners";
-import UserActions from "../../components/TableActions/UserActions";
+import UserActions from "../../components/TableActions/TruckActions";
 import Images from "../../assets/images";
 
 

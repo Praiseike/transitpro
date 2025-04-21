@@ -40,7 +40,7 @@ const TruckInfo: React.FC<TruckInfoProps> = ({ isOpen, onClose, truck }) => {
                 {/* Truck Image */}
                 <div className="mb-6">
                     <img
-                        src={truckImg}
+                        src={truck?.image_url}
                         alt="Truck"
                         className="w-full rounded-lg object-cover"
                     />

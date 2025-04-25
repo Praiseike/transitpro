@@ -7,6 +7,8 @@ export const Nav = () => {
 
     const auth = useAuth();
     const signedIn = !!auth.token
+    const hasDashboard = auth.userData?.account_type == 'truck_owner';
+
     return (
         <nav className="flex w-full bg-transparent py-10 justify-between items-center">
             <img src="/logo.png" alt="Logo" className="lg:w-[190px]" />
@@ -60,7 +62,7 @@ export const Nav = () => {
                 to={signedIn ? '/dashboard' : '/register'}
                 className="hidden md:block text-primary border-primary px-12 py-3 text-sm rounded border"
             >
-                { signedIn ? 'Dashboard' : 'Register'}
+                { signedIn && hasDashboard ? 'Dashboard' : 'Register'}
             </Link>
         </nav>
     );

@@ -12,13 +12,28 @@ export interface IBusiness {
 }
 
 export interface IUser {
-	ulid: string;
-	name: string;
+
+	account_status: string;
+	account_type:string;
+	address: string;
+	city: string | null;
+	country: string | null;
+	created_at: string;
 	email: string;
-	avatar: string | null;
-	resume?: string;
-	first_name?: string;
-	last_name?: string;
+	email_verified_at: string  | null;
+	fcm_token: string | null;
+	id: number
+	invite_code: string | null;
+	location: any;
+	name: string;
+	phone_number: string;
+	pin_code: string;
+	profile_image: string;
+	ratings_count: number;
+	ratings_score: number;
+	sex: string | null
+	state: string | null;
+	updated_at: string;
 }
 
 export enum ActionEnums {
@@ -41,5 +56,5 @@ export interface ContextType {
 	state: StateType;
 	dispatch: Dispatch<ActionType>;
 	userRefetch: any;
-	userData: any;
+	userData: IUser | null;
 }

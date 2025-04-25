@@ -10,6 +10,7 @@ import Dashboard from './pages/dashboard'
 import Drivers from './pages/dashboard/Drivers'
 import Trucks from './pages/dashboard/Trucks'
 import { GetApp } from './pages/Home/getApp'
+import { Settings } from './pages/dashboard/Settings'
 // import MediaStreamPage from './pages/MediaStreamPage'
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
               <Route index element={<Dashboard/>}/>
               <Route path="drivers" element={<Drivers/>} />
               <Route path="trucks" element={<Trucks/>}/>
+              <Route path="settings" element={<Settings/>} />
             </Route>
           </Route>
         </Routes>

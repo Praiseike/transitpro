@@ -1,6 +1,6 @@
 import { ChangeEvent, useState } from 'react';
 import { useMutation } from '@tanstack/react-query';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { Spinner } from '../../components/Spinner';
 import queryUrls from '../../constants/queryUrls';
@@ -22,7 +22,7 @@ export const CompleteProfile = () => {
     });
 
     const navigate = useNavigate();
-
+    const { state: account } = useLocation();
     const fetcher = useFetcher();
 
     const onChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -59,7 +59,10 @@ export const CompleteProfile = () => {
         },
         onSuccess: (response: any) => {
             toast.success(response.message);
-            navigate('/dashboard'); // Redirect after successful submission
+            if (account.account_type == 'truck_owner')
+                navigate('/dashboard');
+            else
+                navigate('/get-started');
         },
         onError: (error) => {
             toast.error(error.message);

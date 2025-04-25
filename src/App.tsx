@@ -9,6 +9,7 @@ import { DashboardLayout } from './layouts/DashboardLayout'
 import Dashboard from './pages/dashboard'
 import Drivers from './pages/dashboard/Drivers'
 import Trucks from './pages/dashboard/Trucks'
+import { GetApp } from './pages/Home/getApp'
 // import MediaStreamPage from './pages/MediaStreamPage'
 
 function App() {
@@ -22,7 +23,8 @@ function App() {
             <Route index path="/" element={<Home/>} />
             <Route path='/register' element={<Login/>}/>
             <Route path='/verify' element={<VerifyOTP/>}/>
-            <Route path='/complete' element={<CompleteProfile/>}/>
+            <Route path='/complete-profile' element={<CompleteProfile/>}/>
+            <Route path="/get-started" element={<GetApp/>} />
 
             <Route path="/dashboard" element={<DashboardLayout/>}>
               <Route index element={<Dashboard/>}/>

@@ -16,8 +16,8 @@ export const VerifyOTP = () => {
     const navigate = useNavigate();
     const { funcs } = useAuth();
     const { state } = useLocation();
-    const phone = state.phone;
-
+    const { phone, account_type } = state;
+    
     // Countdown timer
     useEffect(() => {
         if (counter > 0) {
@@ -31,6 +31,7 @@ export const VerifyOTP = () => {
     }, [counter]);
 
     const handleSubmit = () => {
+        console.log('clicking')
         const payload = {
             phone_number: '+234' + phone,
             fcm: 'no device',
@@ -58,7 +59,7 @@ export const VerifyOTP = () => {
         onSuccess: (response: any) => {
             toast.success(response.message);
             if(state.account_type !== 'truck_owner')
-                navigate('/complete');
+                navigate('/complete-profile', { state: { ...state }});
             funcs.login({ user: { phone }, token: response.data.token });
         },
         onError: (error) => {

@@ -1,1 +1,1 @@
-export const Spinner = () => <div className="w-8 h-8 rounded-full border-[3px] border-r-black"></div>
+export const Spinner = () => <div className="w-8 h-8 rounded-full border-[3px] animate-spin bg-orange border-r-black"></div>

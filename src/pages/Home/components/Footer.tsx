@@ -11,7 +11,7 @@ const FeedbackInput = ({ name, onChange, label }: any) => {
 
 const Feedback = () => {
     return (
-        <div className="w-[448px] rounded-lg bg-[#303238] px-6 py-7 darker-grotesque-400">
+        <div className="lg:w-[448px] w-full rounded-lg bg-[#303238] px-6 py-7 darker-grotesque-400">
             <p className="text-primary text-sm">FEEDBACK</p>
             <p className="text-[27px] mt-6 darker-grotesque-300">
                 <span className="text-[#FFFFFF66] inline-block ">Seeking personalized support?</span><br />

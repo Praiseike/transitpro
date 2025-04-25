@@ -63,8 +63,8 @@ const Sidebar: React.FC = () => {
     {
       title: "SUPPORT",
       links: [
-        { to: "/reviews", image: ReviewIcon, text: "Reviews" },
-        { to: "/settings", image: SettingsIcons, text: "Settings" },
+        // { to: "/reviews", image: ReviewIcon, text: "Reviews" },
+        { to: "/dashboard/settings", image: SettingsIcons, text: "Settings" },
       ],
     },
   ];
